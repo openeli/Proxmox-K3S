@@ -80,6 +80,26 @@ Reboot each of your instances to ensure all of our changes so far are in place:
 sudo reboot
 
 
+
+# Preparing the Node
+
+Preparing the Node to recive new ID at cloning 
+
+sudo cloud-init clean
+sudo rm -rf /var/lib/cloud/instances
+sudo truncate -s 0 /etc/machine-id
+sudo rm /var/lib/dbus/machine-id
+sudo ln -s /etc/machine-id /var/lib/dbus/machine-id
+
+Cheking if it is linked
+ls -l /var/lib/dbus/machine-id
+
+The output must be empty
+cat /etc/machine-id
+
+sudo shutdown -h now
+
+
 # Installing Kubernetes
 
 You can force the OS to use legacy iptables to ensure compatibility with older Kubernetes versions, but this step is optional.
