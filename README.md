@@ -83,21 +83,43 @@ sudo reboot
 
 # Preparing the Node
 
-Preparing the Node to recive new ID at cloning 
+Preparing the Node to recive new ID at cloning: 
 
 sudo cloud-init clean
+
 sudo rm -rf /var/lib/cloud/instances
+
 sudo truncate -s 0 /etc/machine-id
+
 sudo rm /var/lib/dbus/machine-id
+
 sudo ln -s /etc/machine-id /var/lib/dbus/machine-id
 
-Cheking if it is linked
+
+Cheking if it is linked:
+
 ls -l /var/lib/dbus/machine-id
 
-The output must be empty
+The output must be empty:
+
 cat /etc/machine-id
 
-sudo shutdown -h now
+Rebbot:
+
+sudo reboot
+
+
+To avoid running into the issue with having muliple nodes under the same Hostnme:
+
+Change the node's Hostname.
+
+
+sudo nano /etc/hostname
+
+sudo nano /etc/hosts
+
+sudo reboot
+
 
 
 # Installing Kubernetes
