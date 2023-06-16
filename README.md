@@ -104,7 +104,7 @@ The output must be empty:
 
 cat /etc/machine-id
 
-Rebbot:
+Reboot:
 
 sudo reboot
 
